@@ -1,0 +1,28 @@
+<!-- Define an HTML container where the card CVV is to be shown -->
+Card CVV: <span id="cvv" />
+
+<script type="text/javascript">
+  // Initialise the UI library using your ui_key. Replace {{ui_key}} with your own UI key.
+  window.OpcUxSecureClient.init(
+    "08lh8V0130QBegcKUo0ADQ==eyJhbGciOiJIUzI1NiJ9.eyJTWVNURU0iOiJmYWxzZSIsInN1YiI6IlJPT1QsMTA3MDUxNDM2MjYyNjg2NzMzIiwiTUFYX0ZBQ1RPUl9MRVZFTCI6IjAiLCJSQU5ET00iOiItMTg3NjQ0NjE3MDU1NDM1NTUxMiIsIkZBQ1RPUl9MRVZFTCI6IjAiLCJJREVOVElUWV9JRCI6IjEwNzA1MTQzNjI2MjY4NjczMyIsIklERU5USVRZX1RZUEUiOiJjb25zdW1lcnMiLCJURU5BTlRfSUQiOiIzOTMiLCJJTVBFUlNPTkFUT1JfU0VTU0lPTl9JRCI6IjAiLCJQUk9HUkFNTUVfSUQiOiIxMDY0MDUyODIxMDk2NTMwMDMiLCJTRVNTSU9OX0lEIjoiMTA3MjEzOTIzNjIyODQ2NDc2IiwiSU1QRVJTT05BVEVEIjoiZmFsc2UiLCJBVVRIX0dST1VQX0lEIjoiIn0.cjspm8AgGGPi07kfmWsCGTXQa_L2HUhu5zX_4TFqylo",
+    function () {
+      console.log("associate success");
+
+      // Create an instance of a CVV UI component
+      // Replace the {{cvv_token}} with the tokenised CVV received using the server-side API call
+      var span = window.OpcUxSecureClient.span(
+        "cvv",
+        "iX9G8xdQHz0BfFK24s0ADA=="
+      );
+
+      // Embed the CVV component in the HTML element where you want
+      // the CVV to be shown
+      span.mount(document.getElementById("cvv"));
+    },
+
+    // Handle errors
+    function (e) {
+      console.error("associate failed " + e);
+    }
+  );
+</script>
